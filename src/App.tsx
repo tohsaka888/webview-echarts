@@ -26,8 +26,8 @@ function App() {
         return null;
       });
       lineChartsOption.xAxis.data = xValue;
-      data.textStyle = { color: "white" };
-      lineChartsOption.yAxis.data = data;
+      // data.textStyle = { color: "white" };
+      // lineChartsOption.yAxis.data = data;
       lineChartsOption.series[0].data = data;
       setShow(true);
     };
