@@ -11,6 +11,12 @@ const lineChartsOption = {
       color: "white",
     },
   },
+  axisLine: {
+    lineStyle: {
+      color: "#e33b38",
+      width: 1, //这里是为了突出显示加上的
+    },
+  },
   xAxis: {
     id: "name",
     type: "category",
@@ -19,6 +25,13 @@ const lineChartsOption = {
   },
   yAxis: {
     type: "value",
+    axisLabel: {
+      //x轴文字的配置
+      show: true,
+      textStyle: {
+        color: "rgba(219,225,255,1)",
+      },
+    },
     data: {
       textStyle: {
         color: "white",
@@ -30,6 +43,9 @@ const lineChartsOption = {
       data: [{ name: "111", value: 123 }],
       type: "line",
       smooth: true,
+      label: {
+        color: "white",
+      },
     },
   ],
   tooltip: {

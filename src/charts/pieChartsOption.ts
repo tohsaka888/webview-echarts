@@ -3,6 +3,12 @@ const pieChartsOption = {
     text: "标签歌曲数",
     subtext: "仅取前12数量标签",
     x: "center",
+    textStyle: {
+      color: "white",
+    },
+    subtextStyle: {
+      color: "white",
+    },
   },
   tooltip: {
     trigger: "item",
@@ -14,6 +20,9 @@ const pieChartsOption = {
     type: "scroll",
     scrollDataIndex: "name",
     orient: "horizontal",
+    textStyle: {
+      color: "white",
+    },
   },
   series: [
     {
@@ -22,6 +31,10 @@ const pieChartsOption = {
       radius: "50%",
       center: ["50%", "50%"],
       data: [{ value: 0, name: "" }],
+      // colorBy: "series",
+      label: {
+        color: "white",
+      },
       itemStyle: {
         emphasis: {
           shadowBlur: 10,
