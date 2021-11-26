@@ -4,6 +4,12 @@ const lineChartsOption = {
     text: "标签歌曲数",
     subtext: "仅取前12数量标签",
     x: "center",
+    textStyle: {
+      color: "white",
+    },
+    subtextStyle: {
+      color: "white",
+    },
   },
   xAxis: {
     id: "name",
@@ -13,6 +19,11 @@ const lineChartsOption = {
   },
   yAxis: {
     type: "value",
+    data: {
+      textStyle: {
+        color: "white",
+      },
+    },
   },
   series: [
     {

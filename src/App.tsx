@@ -9,6 +9,7 @@ import "./App.css";
 type ResponseProp = {
   name: string;
   value: number;
+  textStyle?: any;
 };
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         return null;
       });
       lineChartsOption.xAxis.data = xValue;
+      data.textStyle = { color: "white" };
+      lineChartsOption.yAxis.data = data;
       lineChartsOption.series[0].data = data;
       setShow(true);
     };
@@ -33,7 +36,7 @@ function App() {
 
   return (
     <div className="charts-container">
-      <Tabs>
+      <Tabs activeLineMode="full">
         <Tabs.Tab title="折线图" key={0}>
           {show ? (
             <ReactECharts option={lineChartsOption} style={{ margin: "2vw" }} />
