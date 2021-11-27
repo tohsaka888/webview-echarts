@@ -6,6 +6,7 @@ import { getTagDetail } from "../request/getTagDetail";
 import { Empty } from "antd-mobile";
 import { useParams } from "react-router-dom";
 import { Select } from "antd";
+import "../App.css";
 
 type ResponseProp = {
   name: string;
@@ -48,6 +49,7 @@ export default function WebviewEcharts() {
           }
         }}
         value={selectedValue}
+        className="select"
       >
         {dataType.length !== 0 &&
           dataType.map((item, index) => (

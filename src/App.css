@@ -1,10 +1,15 @@
 .charts-container {
   width: 100vw;
   height: 100%;
+  background-color: "transparent";
 }
 
 .adm-tabs-tab {
   color: white;
+}
+
+.select {
+  margin: 10px 8px;
 }
 
 .adm-tabs-header {
