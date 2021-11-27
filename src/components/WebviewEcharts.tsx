@@ -41,7 +41,6 @@ export default function WebviewEcharts() {
   return (
     <div className="charts-container">
       <Select
-        style={{ width: "100%" }}
         placeholder={"请选择图表类型"}
         onSelect={(value) => {
           if (value) {

@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: "transparent";
+  background: transparent;
   width: 100%;
   color: white;
   overflow-y: hidden;

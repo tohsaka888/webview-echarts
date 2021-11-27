@@ -1,7 +1,9 @@
 .charts-container {
-  width: 100vw;
+  width: 100%;
   height: 100%;
-  background-color: "transparent";
+  background: transparent;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .adm-tabs-tab {
@@ -9,7 +11,8 @@
 }
 
 .select {
-  margin: 10px 8px;
+  margin: 10px 2%;
+  width: 96%;
 }
 
 .adm-tabs-header {
