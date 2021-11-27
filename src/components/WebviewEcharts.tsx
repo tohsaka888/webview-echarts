@@ -3,8 +3,9 @@ import ReactECharts from "echarts-for-react";
 import { lineChartsOption } from "../charts/lineChartsOption";
 import { pieChartsOption } from "../charts/pieChartsOption";
 import { getTagDetail } from "../request/getTagDetail";
-import { Empty, Tabs } from "antd-mobile";
+import { Empty } from "antd-mobile";
 import { useParams } from "react-router-dom";
+import { Select } from "antd";
 
 type ResponseProp = {
   name: string;
@@ -12,8 +13,11 @@ type ResponseProp = {
   textStyle?: any;
 };
 
+const dataType = ["折线图", "饼图"];
+
 export default function WebviewEcharts() {
   const [show, setShow] = useState<boolean>(false);
+  const [selectedValue, setSelectedValue] = useState<string>("折线图");
   const params = useParams();
   useEffect(() => {
     const getDetail = async () => {
@@ -35,34 +39,49 @@ export default function WebviewEcharts() {
   }, [params.id]);
   return (
     <div className="charts-container">
-      <Tabs activeLineMode="full">
-        <Tabs.Tab title="折线图" key={0}>
-          {show ? (
-            <ReactECharts option={lineChartsOption} style={{ margin: "2vw" }} />
-          ) : (
-            <Empty
-              style={{ padding: "64px 0" }}
-              imageStyle={{ width: 128 }}
-              description="暂无数据"
-            />
-          )}
-        </Tabs.Tab>
-
-        <Tabs.Tab title="饼状图" key={1}>
-          {show ? (
-            <ReactECharts
-              option={pieChartsOption}
-              style={{ margin: "2vw", height: "400px" }}
-            />
-          ) : (
-            <Empty
-              style={{ padding: "64px 0" }}
-              imageStyle={{ width: 128 }}
-              description="暂无数据"
-            />
-          )}
-        </Tabs.Tab>
-      </Tabs>
+      <Select
+        style={{ width: "100%" }}
+        placeholder={"请选择图表类型"}
+        onSelect={(value) => {
+          if (value) {
+            setSelectedValue(value.toString());
+          }
+        }}
+        value={selectedValue}
+      >
+        {dataType.length !== 0 &&
+          dataType.map((item, index) => (
+            <Select.Option key={index} value={item}>
+              {item}
+            </Select.Option>
+          ))}
+      </Select>
+      {selectedValue === "折线图" &&
+        (show ? (
+          <ReactECharts
+            option={lineChartsOption}
+            style={{ margin: "2vw", height: "400px" }}
+          />
+        ) : (
+          <Empty
+            style={{ padding: "64px 0" }}
+            imageStyle={{ width: 128 }}
+            description="暂无数据"
+          />
+        ))}
+      {selectedValue === "饼图" &&
+        (show ? (
+          <ReactECharts
+            option={pieChartsOption}
+            style={{ margin: "2vw", height: "400px" }}
+          />
+        ) : (
+          <Empty
+            style={{ padding: "64px 0" }}
+            imageStyle={{ width: 128 }}
+            description="暂无数据"
+          />
+        ))}
     </div>
   );
 }
