@@ -1,5 +1,5 @@
 const lineChartsOption = {
-  grid: { top: 60, right: 8, bottom: 24, left: 50 },
+  grid: { top: 100, right: 8, bottom: 24, left: 50 },
   title: {
     text: "标签歌曲数",
     subtext: "仅取前12数量标签",
@@ -37,6 +37,7 @@ const lineChartsOption = {
         color: "white",
       },
     },
+    splitNumber: 10,
   },
   series: [
     {
