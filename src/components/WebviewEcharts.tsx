@@ -3,15 +3,16 @@ import ReactECharts from "echarts-for-react";
 import { lineChartsOption } from "../charts/lineChartsOption";
 import { pieChartsOption } from "../charts/pieChartsOption";
 import { getTagDetail } from "../request/getTagDetail";
-import { Empty, Tabs } from "antd-mobile";
+import { Empty } from "antd-mobile";
+import { Collapse } from "antd";
 import { useParams } from "react-router-dom";
 
+const { Panel } = Collapse;
 type ResponseProp = {
   name: string;
   value: number;
   textStyle?: any;
 };
-
 export default function WebviewEcharts() {
   const [show, setShow] = useState<boolean>(false);
   const params = useParams();
@@ -35,9 +36,9 @@ export default function WebviewEcharts() {
   }, [params.id]);
   return (
     <div className="charts-container">
-      <Tabs activeLineMode="full">
-        <Tabs.Tab title="折线图" key={0}>
-          {show ? (
+      <Collapse accordion defaultActiveKey={'LineChart'}>
+        <Panel header="折线图" key="LineChart">
+          <p>{show ? (
             <ReactECharts option={lineChartsOption} style={{ margin: "2vw" }} />
           ) : (
             <Empty
@@ -45,24 +46,20 @@ export default function WebviewEcharts() {
               imageStyle={{ width: 128 }}
               description="暂无数据"
             />
-          )}
-        </Tabs.Tab>
-
-        <Tabs.Tab title="饼状图" key={1}>
-          {show ? (
-            <ReactECharts
-              option={pieChartsOption}
-              style={{ margin: "2vw", height: "400px" }}
-            />
+          )}</p>
+        </Panel>
+        <Panel header="饼图" key="PieChart">
+          <p>{show ? (
+            <ReactECharts option={pieChartsOption} style={{ margin: "2vw" }} />
           ) : (
             <Empty
               style={{ padding: "64px 0" }}
               imageStyle={{ width: 128 }}
               description="暂无数据"
             />
-          )}
-        </Tabs.Tab>
-      </Tabs>
-    </div>
+          )}</p>
+        </Panel>
+      </Collapse>,
+    </div >
   );
 }
