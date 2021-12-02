@@ -18,4 +18,14 @@
 
 .ant-collapse {
     background-color: transparent!important;
+    border: transparent!important;
 }
+
+.ant-collapse-item {
+    border: transparent!important;
+}
+
+
+/* .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+    color: white;
+} */
