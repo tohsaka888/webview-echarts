@@ -60,7 +60,7 @@ export default function WebviewEcharts() {
             />
           )}</p>
         </Panel>
-      </Collapse>,
+      </Collapse>
     </div >
   );
 }
