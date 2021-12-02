@@ -6,6 +6,7 @@ import { getTagDetail } from "../request/getTagDetail";
 import { Empty } from "antd-mobile";
 import { Collapse } from "antd";
 import { useParams } from "react-router-dom";
+import "./../App.css";
 
 const { Panel } = Collapse;
 type ResponseProp = {
